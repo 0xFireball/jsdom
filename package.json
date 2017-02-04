@@ -71,6 +71,8 @@
     "vm": "./lib/jsdom/vm-shim.js"
   },
   "scripts": {
+    "tscompile": "tsc -p . && echo ok || echo not ok",
+    "nkxmake": "npm run tscompile && browserify out/jsdom_nkx.js -o out/jsdom_nkx.js",
     "prepublish": "npm run convert-idl",
     "pretest": "npm run convert-idl && git submodule update --init --recursive",
     "test-wpt": "mocha test/web-platform-tests/index.js",

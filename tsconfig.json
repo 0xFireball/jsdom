@@ -4,6 +4,7 @@
   ],
   "compilerOptions": {
     "allowJs": true,
-    "outFile": "out/jsdom_nkx.js"
+    "outFile": "out/jsdom_nkx.js",
+    "allowUnreachableCode": true
   }
 }
