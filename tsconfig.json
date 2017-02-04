@@ -1,6 +1,6 @@
 {
-  "include": [
-    "lib/**/*"
+  "files": [
+    "out/jsdom_nkx_pack.js" // browserify-packed file
   ],
   "compilerOptions": {
     "allowJs": true,
