@@ -72,7 +72,9 @@
   },
   "scripts": {
     "tscompile": "tsc -p . && echo ok || echo not ok",
-    "nkxmake": "npm run tscompile && browserify out/jsdom_nkx.js -o out/jsdom_nkx.js",
+    "browserify": "npm run tscompile && browserify out/jsdom_nkx.js -o out/jsdom_nkx_pack.js",
+    "uglify-pack": "uglifyjs out/jsdom_nkx_pack.js -o out/jsdon_nkx_pack.min.js -c",
+    "nkxmake": "npm run browserify && npm run uglify-pack",
     "prepublish": "npm run convert-idl",
     "pretest": "npm run convert-idl && git submodule update --init --recursive",
     "test-wpt": "mocha test/web-platform-tests/index.js",
