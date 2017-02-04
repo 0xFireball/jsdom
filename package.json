@@ -15,7 +15,7 @@
     "Joris van der Wel <joris@jorisvanderwel.com>"
   ],
   "license": "MIT",
-  "repository": "tmpvar/jsdom",
+  "repository": "0xfireball/jsdom",
   "dependencies": {
     "abab": "^1.0.3",
     "acorn": "^4.0.4",
