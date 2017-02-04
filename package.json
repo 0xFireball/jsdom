@@ -21,6 +21,7 @@
     "acorn": "^4.0.4",
     "acorn-globals": "^3.1.0",
     "array-equal": "^1.0.0",
+    "babel-preset-latest": "^6.22.0",
     "content-type-parser": "^1.0.1",
     "cssom": ">= 0.3.2 < 0.4.0",
     "cssstyle": ">= 0.2.37 < 0.3.0",
@@ -71,10 +72,10 @@
     "vm": "./lib/jsdom/vm-shim.js"
   },
   "scripts": {
-    "tscompile": "npm run browserify && tsc -p . && echo ok || echo not ok",
-    "browserify": "mkdir out || cd lib && browserify ./jsdom_nkx.js -o ../out/jsdom_nkx_pack.js || cd ..",
-    "uglify-pack": "uglifyjs out/jsdom_nkx_pack.js -o out/jsdon_nkx_pack.min.js -c",
-    "nkxmake": "npm run prepublish && npm run tscompile && npm run uglify-pack",
+    "transpile": "npm run browserify && babel out/jsdom_nkx_pack.js -o out/jsdom_nkx.js",
+    "browserify": "cd lib && browserify ./jsdom_nkx.js -o ../out/jsdom_nkx_pack.js || cd ..",
+    "uglify-pack": "uglifyjs out/jsdom_nkx.js -o out/jsdon_nkx.min.js -c",
+    "nkxmake": "npm run prepublish && npm run transpile && npm run uglify-pack",
     "prepublish": "npm run convert-idl",
     "pretest": "npm run convert-idl && git submodule update --init --recursive",
     "test-wpt": "mocha test/web-platform-tests/index.js",
