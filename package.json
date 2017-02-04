@@ -73,7 +73,7 @@
   },
   "scripts": {
     "transpile": "npm run browserify && babel out/jsdom_nkx_pack.js -o out/jsdom_nkx.js",
-    "browserify": "cd lib && browserify ./jsdom_nkx.js -o ../out/jsdom_nkx_pack.js || cd ..",
+    "browserify": "mkdir out || cd lib && browserify ./jsdom_nkx.js -o ../out/jsdom_nkx_pack.js || cd ..",
     "uglify-pack": "uglifyjs out/jsdom_nkx.js -o out/jsdon_nkx.min.js -c",
     "nkxmake": "npm run prepublish && npm run transpile && npm run uglify-pack",
     "prepublish": "npm run convert-idl",
